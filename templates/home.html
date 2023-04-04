@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style-nav.css">
+  <script src="https://kit.fontawesome.com/ec7268a24d.js" crossorigin="anonymous"></script>
+  <style>
+    .pic {
+      border-radius: 100%;
+      height: 50px;
+    }
+  </style>
+  <title>Home</title>
+</head>
+
+
+<body>
+
+  <header>
+    <div class="container1">
+      <nav class="finalnavbar">
+        <div class="menu-icons">
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-times"></i>
+        </div>
+        <a href="#" class="logo">AlumTrack</a>
+        <ul class="nav-list">
+          <li>
+            <a href="#">Features<i class="fas fa-caret-down"></i></a>
+            <ul class="sub-menu">
+              <li>
+                <a href="findalumni">Find alumni</a>
+              </li>
+              <li>
+                <a href="#">Stay connected
+                  <i class="fas fa-caret-down"></i></a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="edit_profile">update your info</a>
+                  </li>
+                  <li>
+                    <a href="#">send your news</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li>
+                <a href="blog">Alumni News</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="events">Events</a>
+          </li>
+
+          <li>
+            <a href="blog">Blog</a>
+          </li>
+          <li>
+            <a href="contact">Contact</a>
+          </li>
+          {%if user.img%}
+          <img class="pic" src="{{user.img.url}}" alt="Profile Pic"><br>
+          {%endif%}
+          <li>
+            <a href="profile"><strong>
+                {%if user.is_verified %}
+                <i class="fa fa-check" style="color: rgb(11, 80, 199);font-size:30px"
+                  aria-hidden="true"></i>{{user.name}}
+                {%else%}
+                Welcome {{user.name}}
+                {%endif%}
+              </strong> </a>
+          </li>
+          <!-- <li>
+            <a href="logout">Logout</a>
+          </li> -->
+
+
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+
+  <section id="homepage">
+    <div class="container">
+      <div class="homepageparent">
+        <div class="lefthome">
+          <h2>Welcome to AlumTrack</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nisi, temporibus impedit nobis deserunt
+            accusamus voluptatem corporis maxime praesentium in corrupti optio explicabo! Consequuntur, eligendi
+            dolorum? Laudantium reprehenderit perspiciatis harum veniam quam!</p>
+        </div>
+        <div class="righthome">
+          <img src="/static/images/asset 2.png" alt="">
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+
+  <section id="motto">
+    <div class="container">
+      <div class="motto">
+        <h3>Worlds Best Universities Rely on Our Alumni Network</h3>
+      </div>
+      <div class="logosection">
+        <img class="amity " src="/static/images/amity logo.jpg" alt="">
+        <img class="harvard logohome" src="/static/images/harvard logo.jpg" alt="">
+        <img class="iit logohome" src="/static/images/iit logo.png" alt="">
+        <img class="lpu logohome" src="/static/images/lpu logo.jpg" alt="">
+        <img class="yale logohome" src="/static/images/yale logo.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="cardshead">
+    <div class="container">
+      <div class="cards-heading">
+        <h3>Your user research's Hackathon Army.</h3>
+        <a href="#" class="homebutton">See All Features &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="cardsbanao">
+        <div class="cards">
+          <img src="/static/images/asset 11.svg" alt="">
+          <h3>Stay Connected</h3>
+          <p>To keep in touch with your fellow peers.</p>
+          <a href="#" class="homebutton">See the features<i class="fa-solid fa-arrow-right arrow"></i> </a>
+        </div>
+        <div class="cards">
+          <img src="/static/images/asset 17.svg" alt="">
+          <h3>Update info</h3>
+          <p>Update the world about your progress.</p>
+          <a href="edit_profile" class="homebutton">See the features<i class="fa-solid fa-arrow-right arrow"></i> </a>
+        </div>
+        <div class="cards">
+          <img src="/static/images/asset 13.svg" alt="">
+          <h3>Search Alumni</h3>
+          <p>Discover your fellow Peers.</p>
+          <a href="findalumni" class="homebutton">See the features<i class="fa-solid fa-arrow-right arrow"></i> </a>
+        </div>
+        <div class="cards">
+          <img src="/static/images/asset 14.svg" alt="">
+          <h3>Alumni News and Blogs</h3>
+          <p>Discover how people group and label information.</p>
+          <a href="blog" class="homebutton">See the features<i class="fa-solid fa-arrow-right arrow"></i> </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text">Created By Team AltF4</p>
+  </footer>
+
+
+  <script src="/static/script.js"></script>
+
+</body>
+
+</html>

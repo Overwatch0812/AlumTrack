@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://kit.fontawesome.com/ec7268a24d.js" crossorigin="anonymous"></script>
+
+    <title>AlumTrack</title>
+
+</head>
+
+<body>
+    <!-- banner -->
+    <section>
+        <div class="banner">
+            <div class="container">
+                <div class="small-banner">
+
+                    😊 New To AlumTrack! &nbsp;<a href="registration"> Sign Up
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- loginpage -->
+    <section id="loginpage">
+        <div class="container">
+            <div class="log-in">
+                <div class="loginimg">
+
+                    <img src="/static/images/Secure login-pana.svg" class="vert-move" alt="">
+
+
+                </div>
+                <form action="signin" method="POST">
+                    {%csrf_token%}
+                    <div class="loginform">
+                        <div class="alignform">
+                           
+                            <div class="mail1">
+                                <label>
+                                    <h2>Enter your Mail-id</h2>
+                                </label>
+                                <input type="email" placeholder="Gmail.." name="email" required>
+                            </div>
+                            <div class="password1">
+                                <label>
+                                    <h2>Enter your password</h2>
+                                </label>
+                                <input type="password" placeholder="Password.." name="password" required>
+                            </div>
+
+                            <div class="submitform">
+                                <input type="submit" placeholder="Login">
+                            </div>
+                            <h4>or</h4>
+                            <div>
+                                <a href="registration" class="signinbutton"> SignUp</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>

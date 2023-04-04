@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://kit.fontawesome.com/ec7268a24d.js" crossorigin="anonymous"></script>
+    <title>AlumTrack</title>
+</head>
+
+<body>
+
+    <section>
+        <section>
+            <div class="banner anotherbanner">
+                <div class="container">
+                    <div class="small-banner">
+
+                        😊 Already Registered ? &nbsp; <a href="signin"> Sign In </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </section>
+    <section id="signuppage">
+        <form action="registration" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="container">
+                <div class="signin">
+                    <div class="signinform">
+                        <div class="alignform2">
+                            <div class="name1">
+                                <label>
+                                    <h2>Enter your Full Name*</h2>
+                                </label>
+                                <input type="text" placeholder="Name.." required name="name" autocomplete="off">
+                            </div>
+                            
+                            <div class="mail1">
+                                <label>
+                                    <h2>Enter your Mail-id*</h2>
+                                </label>
+                                <input type="mail" placeholder="Gmail.." required name="email" autocomplete="off">
+                            </div>
+
+                            <div class="mail1">
+                                <label for="Graduation">
+                                    <h2>Graduation year*</h2>
+                                </label>
+                                <input type="text" id="Graduation" placeholder="Graduation Year.." required
+                                    name="graduation_year" autocomplete="off">
+                            </div>
+                            <div class="mail1">
+                                <label for="Graduation">
+                                    <h2>Course*</h2>
+                                </label>
+                                <input type="text" id="Course" placeholder="COurse.." required name="course_name"
+                                    autocomplete="off">
+                            </div>
+                            <div class="mail1">
+                                <label for="Graduation">
+                                    <h2>GR Number*</h2>
+                                </label>
+                                <input type="text" id="GR Number" placeholder="GR Number.." required name="GR_number"
+                                    autocomplete="off">
+                            </div>
+                           
+                            <div class="password1">
+                                <label>
+                                    <h2>Enter your Password*</h2>
+                                </label>
+                                <input type="password" placeholder="Password.." required name="password1"
+                                    autocomplete="off">
+                            </div>
+                            <div class="password2">
+                                <label>
+                                    <h2>Confirm your Password*</h2>
+                                </label>
+                                <input type="password" placeholder="Password.." required name="password2"
+                                    autocomplete="off">
+                            </div>
+                            <div class="submitform">
+                                <input type="submit" class="signinbutton signupbutton" value="Register" name="register">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="signinimg signupimg">
+
+                        <img src="/static/images/Sign up-amico.svg" class="vert-move2" alt="">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

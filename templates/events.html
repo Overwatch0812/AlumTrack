@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/events.css">
+    <title>Events Ticket Card</title>
+    <style>
+        .pic{
+          border-radius: 100%;
+          height: 50px;
+        }
+      </style>
+</head>
+
+<body>
+    <header>
+        <div class="container1">
+            <nav class="finalnavbar">
+                <div class="menu-icons">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+                </div>
+                <a href="/home" class="logo">AlumTrack</a>
+                <ul class="nav-list">
+                    
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Features<i class="fas fa-caret-down"></i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="findalumni.html">Find alumni</a>
+                            </li>
+                            <li>
+                                <a href="stayconnected.html">Stay connected
+                                    <i class="fas fa-caret-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="stayconnected.html">update your info</a>
+                                    </li>
+                                    <li>
+                                        <a href="stayconnected.html">send your news</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="blogs.html">Alumninews</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="blog">Blog</a>
+                    </li>
+                    <li>
+                        <a href="contact">Contact</a>
+                    </li>
+                    <!-- <li>
+                        <a href="logout">Logout</a>
+                    </li>
+                    -->
+                    {%if user.img%}
+    <img class="pic" src="{{user.img.url}}" alt="Profile Pic"><br>
+    {%endif%}
+            <li>
+              <a href="profile"><strong>
+                {%if user.is_verified %}
+                <i class="fa fa-check" style="color: rgb(11, 80, 199);font-size:30px" aria-hidden="true"></i>{{user.name}}
+                {%else%}
+                Welcome {{user.name}}
+                {%endif%}
+              </strong> </a>
+            </li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <div class="eventsheader">
+        <h2>Events</h2>
+    </div>
+    <div class="container">
+        {%for event in events%}
+        <div class="item-container">
+            <div class="img-container">
+                <img src="{{event.img.url}}" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">{{event.event_name}}</p>
+                    <div class="separator"></div>
+                    <p class="info">{{event.committee_name}}</p>
+                    <p class="price">Fees:{{event.Entry_fee}}</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            {{event.location}}
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            {{event.date_time}}
+                        </p>
+
+                        <p class="info description">
+                            {{event.description}}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {%endfor%}
+
+
+    </div>
+    <footer>
+        <p class="footer-text">Created By Team AltF4</p>
+    </footer>
+</body>
+
+</html>

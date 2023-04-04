@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="edit_profile" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="signin">
+                <div class="signinform">
+                    <div class="alignform2">
+                        <div class="name1">
+                            <label>
+                                <h2>Full Name</h2>
+                            </label>
+                            <input type="text" placeholder="Name.." value="{{user.name}}" name="name">
+                        </div>
+
+                        <div class="mail1">
+                            <label>
+                                <h2>Mail-id</h2>
+                            </label>
+                            <input type="mail" placeholder="Gmail.." value="{{user.email}}"name="email">
+                        </div>
+
+                        <div class="mail1">
+                            <label for="Graduation">
+                                <h2>Graduation year</h2>
+                            </label>
+                            <input type="text" id="Graduation" placeholder="Graduation Year.." value="{{user.graduation_year}}"
+                                name="graduation_year">
+                        </div>
+                        <div class="mail1">
+                            <label for="Graduation">
+                                <h2>Course</h2>
+                            </label>
+                            <input type="text" id="Course" placeholder="COurse.." value="{{user.course_name}}" name="course_name">
+                        </div>
+                        <div class="mail1">
+                            <label for="Graduation">
+                                <h2>GR Number</h2>
+                            </label>
+                            <input type="text" id="GR Number" placeholder="GR Number.." value="{{user.GR_number}}"name="GR_number">
+                        </div>
+                        <div class="name1">
+                            <label>
+                                <h2>Profile</h2>
+                            </label>
+                            <input type="file" name="img" alt="Profile">
+                        </div>
+                        
+                        <div class="submitform">
+                            <input type="submit" class="signinbutton signupbutton" value="Update Profile" name="register">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

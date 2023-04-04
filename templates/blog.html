@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/blog.css">
+    <script src="https://kit.fontawesome.com/ec7268a24d.js" crossorigin="anonymous"></script>
+    <style>
+        .pic {
+            border-radius: 100%;
+            height: 50px;
+        }
+    </style>
+    <title>blog</title>
+</head>
+
+<body>
+    <header>
+        <div class="container1">
+            <nav class="finalnavbar">
+                <div class="menu-icons">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+                </div>
+                <a href="/home" class="logo">AlumTrack</a>
+                <ul class="nav-list">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Features<i class="fas fa-caret-down"></i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="findalumni">Find alumni</a>
+                            </li>
+                            <li>
+                                <a href="#">Stay connected
+                                    <i class="fas fa-caret-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#">update your info</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">send your news</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="blog">Alumninews</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="events">Events</a>
+                    </li>
+
+                    <li>
+                        <a href="contact">Contact</a>
+                    </li>
+                    {%if user.img%}
+                    <img class="pic" src="{{user.img.url}}" alt="Profile Pic"><br>
+                    {%endif%}
+                    <li>
+                        <a href="profile"><strong>
+                                {%if user.is_verified %}
+                                <i class="fa fa-check" style="color: rgb(11, 80, 199);font-size:30px"
+                                    aria-hidden="true"></i>{{user.name}}
+                                {%else%}
+                                Welcome {{user.name}}
+                                {%endif%}
+                            </strong> </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Herosection -->
+    <section class="hero-section" id="blog">
+        <div class="container">
+            <div class="heading">
+                <h1>Our Blogs</h1>
+            </div>
+            <div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for blog in blogs %}
+                    <div class="col">
+                        <div class="card h-100">
+
+                            <div class="card-body">
+                                <a href="#">
+                                    <h3 class="card-title">{{blog.title}}</h3>
+                                </a>
+                                <p class="card-text">{{blog.description}}</p>
+                                <p><strong>{{blog.date}}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- News -->
+    <section id="alumninews">
+
+        <div class="container">
+            <div class="heading">
+                <h1 class="alumninews1">Alumni News</h1>
+            </div>
+            <div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {%for news in news%}
+                    <div class="col">
+                        <div class="card h-100">
+
+                            <div class="card-body">
+                                <a href="#">
+                                    <h3 class="card-title">{{news.title}}</h3>
+                                </a>
+                                <p class="card-text">{{news.description}}</p>
+                                <p><strong>{{news.date}}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">Created By Team AltF4</p>
+    </footer>
+</body>
+
+</html>

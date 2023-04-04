@@ -1,0 +1,61 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%if search%}
+
+<head>
+    <style>
+
+        .nigga2 {
+            margin-top: 80px;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        th {
+            padding: 8px;
+            background-color: rgb(7, 92, 105);
+            color: white;
+        }
+
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+
+        }
+
+        tr:hover {
+            background-color: rgb(148, 217, 229);
+        }
+    </style>
+</head>
+
+<div class="nigga2">
+    <table>
+        <th>Name</th>
+        <th>email</th>
+        <th>graduation_year</th>
+        <th>course_name</th>
+        <th>GR_number</th>
+        {%for i in user%}
+        <tr>
+            <td><a href="{% url 'userdetail' i.id %}" style="cursor:pointer;color:black">{{i.name}}</a></td>
+            <td>{{i.email}}</td>
+            <td>{{i.graduation_year}}</td>
+            <td>{{i.course_name}}</td>
+            <td>{{i.GR_number}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{%else%}
+<h1 style="margin-top: 70px;">Search kar lavdya</h1>
+
+{%endif%}
+{%endblock%}
