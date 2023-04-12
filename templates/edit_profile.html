@@ -1,72 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Profile</title>
+		<script
+			src="https://kit.fontawesome.com/ec7268a24d.js"
+			crossorigin="anonymous"
+		></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Poppins", sans-serif;
+				transition: all 0.2s ease-out;
+			}
 
-<body>
-    <form action="edit_profile" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="container">
-            <div class="signin">
-                <div class="signinform">
-                    <div class="alignform2">
-                        <div class="name1">
-                            <label>
-                                <h2>Full Name</h2>
-                            </label>
-                            <input type="text" placeholder="Name.." value="{{user.name}}" name="name">
-                        </div>
+			:root {
+				--main-color: #0c2340;
+				--headings: #0c2340;
+				--background-color1: white;
+				--background-color2: rgb(166, 164, 164);
+				--accent-color: #2294ed;
+				--accent-color-dark: #1d69a3;
+				--padding-inline-section: 20px;
+				--text-color: #b5c2ce;
+			}
 
-                        <div class="mail1">
-                            <label>
-                                <h2>Mail-id</h2>
-                            </label>
-                            <input type="mail" placeholder="Gmail.." value="{{user.email}}"name="email">
-                        </div>
+			html {
+				font-size: 10px;
+			}
 
-                        <div class="mail1">
-                            <label for="Graduation">
-                                <h2>Graduation year</h2>
-                            </label>
-                            <input type="text" id="Graduation" placeholder="Graduation Year.." value="{{user.graduation_year}}"
-                                name="graduation_year">
-                        </div>
-                        <div class="mail1">
-                            <label for="Graduation">
-                                <h2>Course</h2>
-                            </label>
-                            <input type="text" id="Course" placeholder="COurse.." value="{{user.course_name}}" name="course_name">
-                        </div>
-                        <div class="mail1">
-                            <label for="Graduation">
-                                <h2>GR Number</h2>
-                            </label>
-                            <input type="text" id="GR Number" placeholder="GR Number.." value="{{user.GR_number}}"name="GR_number">
-                        </div>
-                        <div class="name1">
-                            <label>
-                                <h2>Profile</h2>
-                            </label>
-                            <input type="file" name="img" alt="Profile">
-                        </div>
-                        
-                        <div class="submitform">
-                            <input type="submit" class="signinbutton signupbutton" value="Update Profile" name="register">
-                        </div>
+			.container {
+				max-width: 1180px;
+				margin: auto;
+				padding-inline: var(--padding-inline-section);
+			}
 
-                    </div>
+			h1 {
+				font-size: 4.5rem;
+				color: #183b56;
+			}
 
-                </div>
+			h2 {
+				font-size: 4rem;
+				color: #183b56;
+				font-weight: 500;
+			}
 
+			h3 {
+				font-size: 3rem;
+				color: #183b56;
+				font-weight: 500;
+			}
+			h4 {
+				font-size: 2.5rem;
+				color: #183b56;
+				font-weight: 500;
+			}
 
-            </div>
-        </div>
-    </form>
-</body>
+			p {
+				font-family: "Roboto", sans-serif;
+				font-size: 1.8rem;
+				color: black;
+				line-height: 1.5;
+				margin-top: 16px;
+				color: #183b56;
+			}
 
+			a {
+				text-decoration: none;
+				display: inline-block;
+				color: var(--accent-color);
+				position: relative;
+				z-index: 1600;
+			}
+			a:hover {
+				color: var(--accent-color-dark);
+			}
+
+			body {
+				background-color: white;
+				background-attachment: fixed;
+				background-size: cover;
+				background-repeat: no-repeat;
+				min-height: 100vh;
+				overflow-x: hidden;
+			}
+
+			body::before {
+				position: absolute;
+				min-height: 100vh;
+				content: "";
+				width: 100%;
+				/* background: rgba(0, 0, 0, 0.85); */
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			header {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.container1 {
+				width: 100%;
+				margin: 0 auto;
+			}
+
+			.menu-icons {
+				display: none;
+				align-items: center;
+				justify-content: center;
+				color: #183b56;
+				font-size: 2rem;
+				font-family: "Roboto", sans-serif;
+				position: absolute;
+				top: 50%;
+				right: 2rem;
+				-o-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+				cursor: pointer;
+				z-index: 1500;
+				/* display: none; */
+			}
+
+			nav {
+				width: 100%;
+				-o-border-radius: 1px solid rgba(255, 255, 255, 0.1);
+				-webkit-border-radius: 1px solid rgba(255, 255, 255, 0.1);
+				-moz-border-radius: 1px solid rgba(255, 255, 255, 0.1);
+				-ms-border-radius: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 1px solid rgba(255, 255, 255, 0.1);
+				display: flex;
+				align-items: center;
+				height: 60px;
+				background: rgba(0, 0, 0, 0.5);
+				justify-content: space-between;
+				gap: 2rem;
+				box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4);
+				background-image: url("../static/images/asset\ 32.png");
+			}
+
+			.logo {
+				display: inline;
+				font-size: 3rem;
+				color: #183b56;
+				margin-right: 5rem;
+				font-family: "Poppins", sans-serif;
+				margin-left: 50px;
+				font-weight: 600;
+			}
+
+			.nav-list {
+				display: flex;
+				align-items: center;
+				/* color: black; */
+			}
+
+			.nav-list li {
+				line-height: 8rem;
+				position: relative;
+				/* color: black; */
+			}
+
+			.sub-menu li {
+				line-height: 4rem;
+			}
+
+			.nav-list a {
+				display: block;
+				color: #183b56;
+				padding: 0 1.5rem;
+				font-size: 1.4rem;
+				text-transform: uppercase;
+				-o-transition: color 650ms;
+				-webkit-transition: color 650ms;
+				-moz-transition: color 650ms;
+				-ms-transition: color 650ms;
+				transition: color 650ms;
+				position: relative;
+				width: 100%;
+				align-items: center;
+			}
+
+			.nav-list a:hover {
+				color: var(--accent-color);
+			}
+
+			.btn {
+				padding: 1.3rem;
+				display: inline-block;
+				border: 2px solid var(--main-color);
+				-o-border-radius: 0.5rem;
+				-webkit-border-radius: 0.5rem;
+				-moz-border-radius: 0.5rem;
+				-ms-border-radius: 0.5rem;
+				border-radius: 0.5rem;
+				-o-transition: background-color 650ms;
+				-webkit-transition: background-color 650ms;
+				-moz-transition: background-color 650ms;
+				-ms-transition: background-color 650ms;
+				transition: background-color 650ms;
+			}
+
+			.btn:hover {
+				color: var(--main-color);
+			}
+
+			.sub-menu {
+				width: 20rem;
+				display: block;
+				position: absolute;
+				border-top: 3px solid var(--main-color);
+				background-color: white;
+				z-index: 100;
+				top: 16rem;
+				-o-transition: all 250ms ease;
+				-webkit-transition: all 250ms ease;
+				-moz-transition: all 250ms ease;
+				-ms-transition: all 250ms ease;
+				transition: all 250ms ease;
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.sub-menu::before {
+				content: "";
+				position: absolute;
+				top: -2.5rem;
+				left: 3rem;
+				border: 1.2rem solid transparent;
+				border-bottom: 1.2rem solid var(--main-color);
+			}
+
+			.sub-menu .sub-menu::before {
+				top: 0.9rem;
+				left: -2.5rem;
+				border: 1.2rem solid transparent;
+				border-right-color: var(--main-color);
+			}
+
+			.sub-menu .sub-menu {
+				border-top: none;
+				border-left: 3px solid var(--main-color);
+				top: 0;
+				left: 160%;
+			}
+
+			.nav-list li:hover > .sub-menu {
+				top: 8rem;
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.sub-menu li:hover > .sub-menu {
+				top: 0;
+				left: 100%;
+			}
+
+			li.move-right {
+				margin: auto 0 auto auto;
+				line-height: initial;
+			}
+
+			@media screen and (max-width: 900px) {
+				.nav-list {
+					position: fixed;
+					top: 60px;
+					left: 0;
+					height: 100vh;
+					flex-direction: column;
+					background-color: #191919;
+					z-index: 1000;
+					align-items: initial;
+					display: none;
+					overflow-y: scroll;
+					width: 100%;
+				}
+
+				.nav-list > li {
+					line-height: 6rem;
+				}
+
+				.sub-menu {
+					position: initial;
+					border: 3px solid transparent;
+					margin-left: 1rem;
+					max-height: 0;
+					background: rgba(0, 0, 0, 0.5);
+					overflow: hidden;
+					margin-right: 0.4rem;
+					padding-right: 1rem;
+				}
+
+				.sub-menu .sub-menu {
+					border: none;
+					overflow: hidden;
+					margin-right: 0.4rem;
+				}
+
+				.sub-menu::before {
+					display: none;
+				}
+
+				.nav-list li:hover > .sub-menu {
+					opacity: 1;
+					visibility: visible;
+					max-height: initial;
+				}
+
+				li.move-right {
+					margin: 0 auto 0 0;
+					line-height: initial;
+				}
+
+				.menu-icons {
+					display: block;
+				}
+
+				.fa-times {
+					display: none;
+				}
+
+				nav.active .fa-times {
+					display: block;
+				}
+
+				nav.active .fa-bars {
+					display: none;
+				}
+
+				nav.active .nav-list {
+					display: flex;
+				}
+			}
+
+			.finalnavbar {
+				background-color: white;
+			}
+
+			.alignform2 {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin-top: 50px;
+				border: 1px solid black;
+				max-width: 400px;
+				background-color: #f5f5f5;
+				position: relative;
+				left: 33%;
+				border-radius: 6px;
+				box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.4);
+			}
+			input {
+				padding: 6px 80px;
+			}
+			.submitform {
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			.mail1 {
+				text-align: center;
+			}
+			.submitButton {
+				color: #183b56;
+				font-size: 25px;
+			}
+			.submitButton:hover {
+				color: white;
+				font-size: 25px;
+				background-color: #183b56;
+			}
+			footer {
+				text-align: center;
+				height: 65px;
+				margin-top: 50px;
+				background-color: white;
+				background-image: url("../static/images/asset\ 32.png");
+				box-shadow: 5px -10px 8px rgba(0, 0, 0, 0.4);
+			}
+			.footer-text {
+				position: relative;
+				top: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="container1">
+				<nav class="finalnavbar">
+					<div class="menu-icons">
+						<i class="fas fa-bars"></i>
+						<i class="fas fa-times"></i>
+					</div>
+					<a href="/home" class="logo">AlumTrack</a>
+					<ul class="nav-list">
+						<li>
+							<a href="/home">Home</a>
+						</li>
+						<li>
+							<a href="#"
+								>Features<i class="fas fa-caret-down"></i
+							></a>
+							<ul class="sub-menu">
+								<li>
+									<a href="findalumni">Find alumni</a>
+								</li>
+								<li>
+									<a href="stayconnected.html"
+										>Stay connected
+										<i class="fas fa-caret-down"></i
+									></a>
+									<ul class="sub-menu">
+										<li>
+											<a href="stayconnected.html"
+												>update your info</a
+											>
+										</li>
+										<li>
+											<a href="stayconnected.html"
+												>send your news</a
+											>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="blog">Alumninews</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="events">Events</a>
+						</li>
+
+						<li>
+							<a href="blog">Blog</a>
+						</li>
+						<li>
+							<a href="logout">Logout</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<form action="edit_profile" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="container">
+				<div class="signin">
+					<div class="signinform">
+						<div class="alignform2">
+							<div class="name1 mail1">
+								<label>
+									<h4>Full Name</h4>
+								</label>
+								<input
+									type="text"
+									placeholder="Name.."
+									value="{{user.name}}"
+									name="name"
+								/>
+							</div>
+
+							<div class="mail1">
+								<label>
+									<h4>Mail-id</h4>
+								</label>
+								<input
+									type="mail"
+									placeholder="Gmail.."
+									value="{{user.email}}"
+									name="email"
+								/>
+							</div>
+
+							<div class="mail1">
+								<label for="Graduation">
+									<h4>Graduation year</h4>
+								</label>
+								<input
+									type="text"
+									id="Graduation"
+									placeholder="Graduation Year.."
+									value="{{user.graduation_year}}"
+									name="graduation_year"
+								/>
+							</div>
+							<div class="mail1">
+								<label for="Graduation">
+									<h4>Course</h4>
+								</label>
+								<input
+									type="text"
+									id="Course"
+									placeholder="COurse.."
+									value="{{user.course_name}}"
+									name="course_name"
+								/>
+							</div>
+							<div class="mail1">
+								<label for="Graduation">
+									<h4>GR Number</h4>
+								</label>
+								<input
+									type="text"
+									id="GR Number"
+									placeholder="GR Number.."
+									value="{{user.GR_number}}"
+									name="GR_number"
+								/>
+							</div>
+							<div class="mail1">
+								<label>
+									<h4>Profile Image</h4>
+								</label>
+								<input type="file" name="img" alt="Profile" />
+							</div>
+
+							<div class="submitform">
+								<input
+									type="submit"
+									class="signinbutton signupbutton"
+									value="Update Profile"
+									name="register"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<footer>
+			<p class="footer-text">Created By Team AltF4</p>
+		</footer>
+	</body>
 </html>
