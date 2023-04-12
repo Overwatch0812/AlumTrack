@@ -4,18 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<script
+			src="https://kit.fontawesome.com/ec7268a24d.js"
+			crossorigin="anonymous"
+		></script>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		" />
+
 		<title>Document</title>
 		<style>
-			.img {
-				height: 100px;
-				border-radius: 50%;
-			}
-			.mail {
-				color: black;
-				font-size: 25px;
-				text-decoration: none;
-			}
-
 			@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap");
 
 			* {
@@ -48,7 +52,7 @@
 			}
 
 			h1 {
-				font-size: 5rem;
+				font-size: 4.5rem;
 				color: #183b56;
 			}
 
@@ -160,7 +164,7 @@
 				justify-content: space-between;
 				gap: 2rem;
 				box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4);
-				background-image: url("../images/asset\ 32.png");
+				background-image: url("../static/images/asset\ 32.png");
 			}
 
 			.logo {
@@ -361,21 +365,89 @@
 				background-color: white;
 			}
 
-			         {% comment %} Footer CSS {% endcomment %}
-			         footer{
-			             text-align: center;
-			             height: 65px;
-			             margin-top: 50px;
-			             background-color: white;
-			             background-image: url('../images/asset\ 32.png') ;
-			             box-shadow: 5px -10px 8px rgba(0, 0, 0, 0.4);
-			         }
-			         .footer-text
-			         {
-			             position: relative;
-			             top: 15px;
+			footer {
+				text-align: center;
+				height: 65px;
+				margin-top: 50px;
+				background-color: white;
+				background-image: url("../static/images/asset\ 32.png");
+				box-shadow: 5px -10px 8px rgba(0, 0, 0, 0.4);
+			}
+			.footer-text {
+				position: relative;
+				top: 15px;
+			}
 
-			         }
+			.img {
+				height: 130px;
+				border-radius: 50%;
+				width: 130px;
+				position: relative;
+				left: 30%;
+				top: 18px;
+			}
+
+			.heading1 {
+				font-weight: 600;
+				position: relative;
+				right: 10%;
+				margin-top: 20px;
+			}
+			.mail {
+				font-size: 25px;
+				color: #183b56;
+				text-decoration: none;
+				text-align: center;
+				margin-top: 20px;
+				padding: 6px 8px;
+				border-radius: 6px;
+				border: 1px solid black;
+			}
+			.mail:hover {
+				background-color: #183b56;
+				color: white;
+			}
+			.container2 {
+				margin-top: 80px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 90vh;
+				width: 90vw;
+				background-color: #2294ed;
+				border-radius: 6px;
+				border: 2px solid black;
+				box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.4);
+			}
+			.gridHeader {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+				height: 10%;
+				margin-bottom: 50px;
+				margin-top: 20px;
+			}
+
+			.gridMain {
+				margin-top: 20px;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: repeat(3, 1fr);
+				gap: 7px;
+			}
+
+			.gridElements {
+				border: 1px solid black;
+				border-radius: 6px;
+				margin: 0px 7px;
+			}
+
+			h3 {
+				margin-left: 9px;
+			}
 		</style>
 	</head>
 	<body>
@@ -436,19 +508,59 @@
 				</nav>
 			</div>
 		</header>
-		<h1>{{user.name}}'s Profile</h1>
-
-		<img class="img" src="{{user.img.url}}" alt="" />
-		<h3>Name:{{user.name}}</h3>
-		<h3>Email:{{user.email}}</h3>
-		<h3>Year Of Graduation:{{user.graduation_year}}</h3>
-		<h3>Course:{{user.course_name}}</h3>
-		<h3>GR Number:{{user.GR_number}}</h3>
-		<h3>Name:{{user.name}}</h3>
-		<a class="mail" href="mailto:{{user.email}}">Contact</a>
+		<div class="container">
+			<div class="container2">
+				<div class="gridHeader">
+					<img class="img" src="{{user.img.url}}" alt="" />
+					<h2 class="heading1">{{user.name}}'s Profile</h2>
+				</div>
+				<div class="gridMain">
+					<div class="gridElements">
+						<h3>
+							<i class="fa-solid fa-user-graduate"></i>&nbsp
+							Name:{{user.name}}
+						</h3>
+					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fa-regular fa-envelope"></i>&nbsp
+							Email:{{user.email}}
+						</h3>
+					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fa-solid fa-calendar-days"></i>&nbsp Year
+							Of Graduation:{{user.graduation_year}}
+						</h3>
+					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fas fa-chalkboard-teacher"></i>&nbsp
+							Course:{{user.course_name}}
+						</h3>
+					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fas fa-chalkboard-teacher"></i>&nbsp
+							Course:{{user.course_name}}
+						</h3>
+					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fas fa-chalkboard-teacher"></i>&nbsp
+							Course:{{user.course_name}}
+						</h3>
+					</div>
+				</div>
+				<a class="mail" href="mailto:{{user.email}}"
+					><i class="far fa-paper-plane"></i> Contact</a
+				>
+			</div>
+		</div>
 
 		<footer>
 			<p class="footer-text">Created By Team AltF4</p>
 		</footer>
+		<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 	</body>
 </html>
