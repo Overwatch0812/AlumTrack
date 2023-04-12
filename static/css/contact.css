@@ -87,7 +87,7 @@ a:hover
 }
 
 body {
-    background-color: var(--accent-color) ;
+    background-color: white ;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -396,6 +396,8 @@ li.move-right {
     width: 400px;
     left: 380px;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.4);
+    background-color: #f5f5f5;
+   
 }
 
 form
@@ -420,13 +422,12 @@ input
     border: 2px solid var(--headings);
     border-radius: 6px;
     color: black;
+    margin-bottom: 15px;
+    cursor: pointer;
     /* box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4); */
 }
 
-.signinbutton:hover
-{
-    background-color: aqua;
-}
+
 
 
 
