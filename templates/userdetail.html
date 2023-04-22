@@ -164,7 +164,7 @@
 				justify-content: space-between;
 				gap: 2rem;
 				box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4);
-				background-image: url("../static/images/asset\ 32.png");
+				background-image: url("/static/images/asset 32.png");
 			}
 
 			.logo {
@@ -370,7 +370,7 @@
 				height: 65px;
 				margin-top: 50px;
 				background-color: white;
-				background-image: url("../static/images/asset\ 32.png");
+				background-image: url("/static/images/asset 32.png");
 				box-shadow: 5px -10px 8px rgba(0, 0, 0, 0.4);
 			}
 			.footer-text {
@@ -413,8 +413,8 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				height: 90vh;
-				width: 90vw;
+				height: 75vh;
+				width: 75vw;
 				background-color: #f5f5f5;
 				border-radius: 6px;
 				border: 2px solid black;
@@ -436,7 +436,7 @@
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
 				grid-template-rows: repeat(3, 1fr);
-				gap: 7px;
+				gap: 10px;
 			}
 
 			.gridElements {
@@ -536,7 +536,7 @@
 					<div class="gridElements">
 						<h3>
 							<i class="fas fa-chalkboard-teacher"></i>&nbsp
-							Course:{{user.course_name}}
+							GR Number:{{user.GR_number}}
 						</h3>
 					</div>
 					<div class="gridElements">
@@ -545,12 +545,26 @@
 							Course:{{user.course_name}}
 						</h3>
 					</div>
+					{%if current_user.is_verified %}
 					<div class="gridElements">
 						<h3>
-							<i class="fas fa-chalkboard-teacher"></i>&nbsp
-							Course:{{user.course_name}}
+							<i class="fa-solid fa-phone"></i>&nbsp
+							Contact Number:{{user.contact_num}}
 						</h3>
 					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fa-solid fa-location-dot"></i>&nbsp
+							Current Location:{{user.current_location}}
+						</h3>
+					</div>
+					<div class="gridElements">
+						<h3>
+							<i class="fa-solid fa-user"></i>&nbsp
+							Current Job:{{user.current_job_designation}}
+						</h3>
+					</div>
+					{%endif%}
 				</div>
 				<a class="mail" href="mailto:{{user.email}}"
 					><i class="far fa-paper-plane"></i> Contact</a

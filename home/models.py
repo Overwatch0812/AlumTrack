@@ -19,3 +19,9 @@ class New(models.Model):
     title=models.CharField(max_length=300)
     description=models.TextField()
     date=models.DateField()
+
+class Contact(models.Model):
+    name=models.CharField(max_length=100,null=True,blank=True)
+    mail=models.EmailField()
+    subject=models.CharField(max_length=100,null=True,blank=True)
+    message=models.TextField()
