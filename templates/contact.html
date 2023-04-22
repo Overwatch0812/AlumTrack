@@ -1,132 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/static/css/contact.css" />
 
-		<title>Contact Us</title>
-	</head>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/static/css/contact.css" />
 
-	<body>
-		<header>
-			<div class="container1">
-				<nav class="finalnavbar">
-					<div class="menu-icons">
-						<i class="fas fa-bars"></i>
-						<i class="fas fa-times"></i>
-					</div>
-					<a href="/home" class="logo">AlumTrack</a>
-					<ul class="nav-list">
-						<li>
-							<a href="/home">Home</a>
-						</li>
-						<li>
-							<a href="#"
-								>Features<i class="fas fa-caret-down"></i
-							></a>
-							<ul class="sub-menu">
-								<li>
-									<a href="findalumni">Find alumni</a>
-								</li>
-								<li>
-									<a href="stayconnected.html"
-										>Stay connected
-										<i class="fas fa-caret-down"></i
-									></a>
-									<ul class="sub-menu">
-										<li>
-											<a href="stayconnected.html"
-												>update your info</a
-											>
-										</li>
-										<li>
-											<a href="stayconnected.html"
-												>send your news</a
-											>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="blog">Alumninews</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="events">Events</a>
-						</li>
+	<title>Contact Us</title>
+</head>
 
-						<li>
-							<a href="blog">Blog</a>
-						</li>
-						<li>
-							<a href="logout">Logout</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
-		<section id="contactUs">
-			<div class="container">
-				<div class="heading">
-					<h2>Contact Us</h2>
+<body>
+	<header>
+		<div class="container1">
+			<nav class="finalnavbar">
+				<div class="menu-icons">
+					<i class="fas fa-bars"></i>
+					<i class="fas fa-times"></i>
 				</div>
-				<div class="divisions">
-					<div class="leftform">
-						<div class="form">
-							<!-- <h2>Contact us</h2> -->
-							<form action="" name="submit-to-google-sheet">
-								<div class="input-label">
-									<label for="Name"><h3>Your Name</h3></label>
-									<input type="text" id="Name" name="Name" />
-								</div>
-								<div class="input-label">
-									<label for="Number"
-										><h3>Your Number</h3></label
-									>
-									<input
-										type="text"
-										id="Number"
-										name="Number"
-									/>
-								</div>
-								<div class="input-label">
-									<label for="Email"
-										><h3>Your Mail-id</h3></label
-									>
-									<input
-										type="email"
-										id="Email"
-										name="Mail-id"
-									/>
-								</div>
-								<div class="input-label">
-									<label for="Email"><h3>Message</h3> </label>
-									<input type="textarea" name="Message" />
-								</div>
+				<a href="/home" class="logo">AlumTrack</a>
+				<ul class="nav-list">
+					<li>
+						<a href="/home">Home</a>
+					</li>
+					<li>
+						<a href="#">Features<i class="fas fa-caret-down"></i></a>
+						<ul class="sub-menu">
+							<li>
+								<a href="findalumni">Find alumni</a>
+							</li>
+							<li>
+								<a href="stayconnected.html">Stay connected
+									<i class="fas fa-caret-down"></i></a>
+								<ul class="sub-menu">
+									<li>
+										<a href="stayconnected.html">update your info</a>
+									</li>
+									<li>
+										<a href="stayconnected.html">send your news</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="blog">Alumninews</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="events">Events</a>
+					</li>
 
-								<input
-									type="submit"
-									value="Send"
-									class="submit signinbutton signupbutton"
-								/>
-							</form>
-							<span id="msg"></span>
-						</div>
-					</div>
-					<div class="boxpic"></div>
-				</div>
+					<li>
+						<a href="blog">Blog</a>
+					</li>
+					<li>
+						<a href="logout">Logout</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="contactUs">
+		<div class="container">
+			<div class="heading">
+				<h2>Contact Us</h2>
 			</div>
-		</section>
+			<div class="divisions">
+				<div class="leftform">
+					<div class="form">
+						<!-- <h2>Contact us</h2> -->
+						<form action="contact" method="POST">
+							{%csrf_token%}
+							<div class="input-label">
+								<label for="Name">
+									<h3>Your Name</h3>
+								</label>
+								<input type="text" id="Name" name="name" />
+							</div>
+							<div class="input-label">
+								<label for="Email">
+									<h3>Your Mail-id</h3>
+								</label>
+								<input type="email" id="Email" name="mail" />
+							</div>
+							<div class="input-label">
+								<label for="Number">
+									<h3>Subject</h3>
+								</label>
+								<input type="text" id="Number" name="subject" />
+							</div>
+							<div class="input-label">
+								<label for="Email">
+									<h3>Message</h3>
+								</label>
+								<input type="textarea" name="message" />
+							</div>
 
-		<!-- footer section -->
-		<footer>
-			<p class="footer-text">Created By Team AltF4</p>
-		</footer>
+							<input type="submit" value="Send" class="submit signinbutton signupbutton" />
+						</form>
+						<span id="msg"></span>
+					</div>
+				</div>
+				<div class="boxpic"></div>
+			</div>
+		</div>
+	</section>
 
-		<!-- <script>  const scriptURL = 'https://script.google.com/macros/s/AKfycby1jMtoJovS4o-LH0mP3znO21U8WzFWWHN5kjyHrijpIyDxSF0OQSpyKhs6ElOckotFpA/exec'
+	<!-- footer section -->
+	<footer>
+		<p class="footer-text">Created By Team AltF4</p>
+	</footer>
+
+	<!-- <script>  const scriptURL = 'https://script.google.com/macros/s/AKfycby1jMtoJovS4o-LH0mP3znO21U8WzFWWHN5kjyHrijpIyDxSF0OQSpyKhs6ElOckotFpA/exec'
     const form = document.forms['submit-to-google-sheet']
     const msg = document.getElementsByClassName("msg")
 
@@ -141,5 +127,6 @@
             .catch(error => console.error('Error!', error.message))
     })
 </script>  -->
-	</body>
+</body>
+
 </html>

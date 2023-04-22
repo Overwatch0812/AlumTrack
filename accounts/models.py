@@ -13,6 +13,10 @@ class CustomUser(AbstractUser):
     course_name=models.CharField(max_length=100,null=True,blank=True)
     GR_number=models.CharField(max_length=100,null=True,blank=True)
     is_verified=models.BooleanField(default=False,null=True,blank=True)
+    contact_num=models.CharField(max_length=10,null=True,blank=True)
+    current_location=models.CharField(max_length=500,null=True,blank=True)
+    current_job_designation=models.CharField(max_length=500,null=True,blank=True)
+    documents=models.FileField(upload_to='users_documents',null=True,blank=True)
     
 
     objects=CustomUserManager()

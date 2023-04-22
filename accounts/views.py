@@ -28,15 +28,15 @@ def registration(request):
                     name=name, email=email, graduation_year=graduation_year, course_name=course_name, GR_number=GR_number, password=password1)
                 user.save()
                 #Email will  be sent here
-                mydict={'name':name}
-                html_template = 'register_email.html'
-                html_message = render_to_string(html_template, context=mydict)
-                subject = 'Welcome to AlumTrack'
-                email_from = settings.EMAIL_HOST_USER
-                recipient_list = [email]
-                message = EmailMessage(subject, html_message,email_from, recipient_list)
-                message.content_subtype = 'html'
-                message.send()
+                # mydict={'name':name}
+                # html_template = 'register_email.html'
+                # html_message = render_to_string(html_template, context=mydict)
+                # subject = 'Welcome to AlumTrack'
+                # email_from = settings.EMAIL_HOST_USER
+                # recipient_list = [email]
+                # message = EmailMessage(subject, html_message,email_from, recipient_list)
+                # message.content_subtype = 'html'
+                # message.send()
                 return redirect('signin')
 
         else:
