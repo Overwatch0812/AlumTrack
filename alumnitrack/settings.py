@@ -147,4 +147,4 @@ EMAIL_HOST = 'smtp.gmail.com' # gmail
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sahil.nikshe22@it.sce.edu.in'
-EMAIL_HOST_PASSWORD = '12anand12'
+EMAIL_HOST_PASSWORD = ''
